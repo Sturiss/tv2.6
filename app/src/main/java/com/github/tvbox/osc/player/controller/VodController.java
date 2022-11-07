@@ -613,7 +613,7 @@ public class VodController extends BaseController {
                 hideBottom();
             }
         });
-        initLandscapePortraitBtnInfo();
+        //initLandscapePortraitBtnInfo();
     }
 
     public void initLandscapePortraitBtnInfo() {
