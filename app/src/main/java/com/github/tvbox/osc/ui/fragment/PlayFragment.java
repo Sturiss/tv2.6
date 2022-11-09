@@ -1305,10 +1305,10 @@ public class PlayFragment extends BaseLazyFragment {
 
     boolean checkVideoFormat(String url) {
         try{
-            if (sourceBean.getType() == 3) {
-                if (url.contains("=http") || url.contains(".html")) {
+            if (url.contains("=http") || url.contains(".html")) {
                     return false;
                 }
+            if (sourceBean.getType() == 3) {
                 Spider sp = ApiConfig.get().getCSP(sourceBean);
                 if (sp != null && sp.manualVideoCheck()){
                     return sp.isVideoFormat(url);
@@ -1520,8 +1520,8 @@ public class PlayFragment extends BaseLazyFragment {
         @Nullable
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-            WebResourceResponse response = checkIsVideo(url, new HashMap<>());
-            return response;
+//            WebResourceResponse response = checkIsVideo(url, new HashMap<>());
+            return null;
         }
 
         @Nullable
