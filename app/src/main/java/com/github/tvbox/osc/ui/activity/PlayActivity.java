@@ -1277,10 +1277,10 @@ public class PlayActivity extends BaseActivity {
     }
 
     boolean checkVideoFormat(String url) {
+        if (url.contains("url=http") || url.contains(".html")) {
+            return false;
+        }
         if (sourceBean.getType() == 3) {
-            if (url.contains("=http") || url.contains(".html")) {
-                return false;
-            }
             Spider sp = ApiConfig.get().getCSP(sourceBean);
             if (sp != null && sp.manualVideoCheck())
                 return sp.isVideoFormat(url);
@@ -1486,7 +1486,7 @@ public class PlayActivity extends BaseActivity {
         @Nullable
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-            return checkIsVideo(url, new HashMap<>());
+            return null;
         }
 
         @Nullable
@@ -1506,8 +1506,7 @@ public class PlayActivity extends BaseActivity {
                     }
                 }
             }
-            WebResourceResponse response = checkIsVideo(url, webHeaders);
-            return response;
+            return checkIsVideo(url, webHeaders);
         }
 
         @Override
