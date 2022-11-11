@@ -351,8 +351,8 @@ public class VodController extends BaseController {
         mPlayerBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-//                myHandle.removeCallbacks(myRunnable);
-//                myHandle.postDelayed(myRunnable, myHandleSeconds);
+                myHandle.removeCallbacks(myRunnable);
+                myHandle.postDelayed(myRunnable, myHandleSeconds);
                 try {
                     int playerType = mPlayerConfig.getInt("pl");
                     ArrayList<Integer> exsitPlayerTypes = PlayerHelper.getExistPlayerTypes();
@@ -377,14 +377,15 @@ public class VodController extends BaseController {
                     e.printStackTrace();
                 }
                 mPlayerBtn.requestFocus();
+                mPlayerBtn.requestFocusFromTouch();
             }
         });
 
         mPlayerBtn.setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-//                myHandle.removeCallbacks(myRunnable);
-//                myHandle.postDelayed(myRunnable, myHandleSeconds);
+                myHandle.removeCallbacks(myRunnable);
+                myHandle.postDelayed(myRunnable, myHandleSeconds);
                 FastClickCheckUtil.check(view);
                 try {
                     int playerType = mPlayerConfig.getInt("pl");
@@ -410,12 +411,14 @@ public class VodController extends BaseController {
                                     updatePlayerCfgView();
                                     listener.updatePlayerCfg();
                                     listener.replay(false);
-                                    mPlayerBtn.requestFocus();
+//                                    mPlayerBtn.requestFocus();
 //                                  hideBottom();
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
+                            mPlayerBtn.requestFocus();
+                            mPlayerBtn.requestFocusFromTouch();
                         }
 
                         @Override
@@ -444,8 +447,8 @@ public class VodController extends BaseController {
         mPlayerIJKBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-//                myHandle.removeCallbacks(myRunnable);
-//                myHandle.postDelayed(myRunnable, myHandleSeconds);
+                myHandle.removeCallbacks(myRunnable);
+                myHandle.postDelayed(myRunnable, myHandleSeconds);
                 try {
                     String ijk = mPlayerConfig.getString("ijk");
                     List<IJKCode> codecs = ApiConfig.get().getIjkCodes();
@@ -468,6 +471,7 @@ public class VodController extends BaseController {
                     e.printStackTrace();
                 }
                 mPlayerIJKBtn.requestFocus();
+                mPlayerIJKBtn.requestFocusFromTouch();
             }
         });
 //        增加播放页面片头片尾时间重置
