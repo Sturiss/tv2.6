@@ -510,7 +510,7 @@ public class DetailActivity extends BaseActivity {
         List<VodInfo.VodSeries> list = vodInfo.seriesMap.get(vodInfo.playFlag);
         int listSize = list.size();
         int w = 1;
-        for(int i =0; i < listsize; ++i){
+        for(int i =0; i < listSize; ++i){
             String name = list.get(i).name;
             pFont.getTextBounds(name, 0, name.length(), rect);
             if(w < rect.width()){
