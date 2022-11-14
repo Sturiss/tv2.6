@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
 
 import com.github.tvbox.osc.R;
@@ -24,11 +25,11 @@ public class SearchCheckboxDialog extends BaseDialog{
 
     private TvRecyclerView mGridView;
     private CheckboxSearchAdapter checkboxSearchAdapter;
-    private TextView checkAll;
-    private TextView clearAll;
-    private List<SourceBean> mSourceList;
+    private final List<SourceBean> mSourceList;
+    TextView checkAll;
+    TextView clearAll;
 
-    public HashMap<String, String> mCheckSourcees = new HashMap<>();
+    public HashMap<String, String> mCheckSourcees;
 
     public SearchCheckboxDialog(@NonNull @NotNull Context context, List<SourceBean> sourceList, HashMap<String, String> checkedSources) {
         super(context);
@@ -41,6 +42,12 @@ public class SearchCheckboxDialog extends BaseDialog{
         mCheckSourcees = checkedSources;
         setContentView(R.layout.dialog_checkbox_search);
         initView(context);
+    }
+    
+    @Override
+    public void dismiss() {
+        checkboxSearchAdapter.setMCheckedSources();
+        super.dismiss();
     }
 
 
@@ -84,10 +91,10 @@ public class SearchCheckboxDialog extends BaseDialog{
             @Override
             public void onClick(View view) {
                 FastClickCheckUtil.check(view);
+                mCheckSourcees = new HashMap<>();
+                assert mSourceList != null;
                 for(SourceBean sourceBean : mSourceList) {
-                    if (!mCheckSourcees.containsKey(sourceBean.getKey())) {
-                        mCheckSourcees.put(sourceBean.getKey(), "1");
-                    }
+                    mCheckSourcees.put(sourceBean.getKey(), "1");
                 }
                 checkboxSearchAdapter.setData(mSourceList, mCheckSourcees);
             }
@@ -96,14 +103,7 @@ public class SearchCheckboxDialog extends BaseDialog{
             @Override
             public void onClick(View view) {
                 FastClickCheckUtil.check(view);
-                if (mCheckSourcees.size() <= 0) {
-                    return;
-                }
-                for(SourceBean sourceBean : mSourceList) {
-                    if (mCheckSourcees.containsKey(sourceBean.getKey())) {
-                        mCheckSourcees.remove(sourceBean.getKey());
-                    }
-                }
+                mCheckSourcees = new HashMap<>();
                 checkboxSearchAdapter.setData(mSourceList, mCheckSourcees);
             }
         });
