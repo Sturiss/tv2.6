@@ -208,7 +208,7 @@ public class DetailActivity extends BaseActivity {
         mSeriesGroupView.setAdapter(seriesGroupAdapter);
         
         //禁用播放地址焦点
-        tvPlayUrl.setFocusable(false);
+        //tvPlayUrl.setFocusable(false);
         
         llPlayerFragmentContainerBlock.setOnClickListener((view -> toggleFullPreview()));
         
