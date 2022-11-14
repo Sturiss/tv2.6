@@ -207,7 +207,10 @@ public class DetailActivity extends BaseActivity {
         mSeriesGroupView.setAdapter(seriesGroupAdapter);
         
         //禁用播放地址焦点
-        //tvPlayUrl.setFocusable(false);
+        tvPlayUrl.setFocusable(false);
+        
+        llPlayerFragmentContainerBlock.setOnClickListener((view -> toggleFullPreview()));
+        
         tvSort.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
@@ -652,6 +655,7 @@ public class DetailActivity extends BaseActivity {
                             jumpToPlay();
                             llPlayerFragmentContainer.setVisibility(View.VISIBLE);
                             llPlayerFragmentContainerBlock.setVisibility(View.VISIBLE);
+                            llPlayerFragmentContainerBlock.requestFocus();
                         }
                         // startQuickSearch();
                     } else {
@@ -907,7 +911,7 @@ public class DetailActivity extends BaseActivity {
         }
         return super.dispatchKeyEvent(event);
     }
-
+/*
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (showPreview && !fullWindows) {
@@ -919,7 +923,7 @@ public class DetailActivity extends BaseActivity {
         }
         return super.dispatchTouchEvent(ev);
     }
-
+*/
     // preview
     VodInfo previewVodInfo = null;
     boolean showPreview = Hawk.get(HawkConfig.SHOW_PREVIEW, true);; // true 开启 false 关闭
