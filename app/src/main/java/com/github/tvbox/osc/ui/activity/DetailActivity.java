@@ -668,7 +668,7 @@ public class DetailActivity extends BaseActivity {
                             jumpToPlay();
                             llPlayerFragmentContainer.setVisibility(View.VISIBLE);
                             llPlayerFragmentContainerBlock.setVisibility(View.VISIBLE);
-                            llPlayerFragmentContainerBlock.requestFocus();
+                            //llPlayerFragmentContainerBlock.requestFocus();
                             toggleSubtitleTextSize();
                         }
                         // startQuickSearch();
