@@ -187,7 +187,7 @@ public class DetailActivity extends BaseActivity {
         mGridViewFlag.setAdapter(seriesFlagAdapter);
         isReverse = false;
         firstReverse = false;
-        //preFlag = "";//恢复长时间暂停后视频断流不自动刷新问题
+        preFlag = "";//恢复长时间暂停后视频断流不自动刷新问题
         if (showPreview) {
             playFragment = new PlayFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.previewPlayer, playFragment).commit();
@@ -379,8 +379,8 @@ public class DetailActivity extends BaseActivity {
                     }
                     //解决当前集不刷新的BUG
                     //恢复长时间暂停后视频断流不自动刷新问题
-                    //if (!preFlag.isEmpty() && !vodInfo.playFlag.equals(preFlag)) {
-                    if (!vodInfo.playFlag.equals(preFlag)) {
+                    if (!preFlag.isEmpty() && !vodInfo.playFlag.equals(preFlag)) {
+                    //if (!vodInfo.playFlag.equals(preFlag)) {
                         reload = true;
                     }
 
