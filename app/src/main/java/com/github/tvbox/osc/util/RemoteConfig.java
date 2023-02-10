@@ -27,10 +27,15 @@ public class RemoteConfig {
 
     public static void Init(Context mContext){
         RemoteConfig.mContext = mContext;
-        if (ToolUtils.isApkInDebug(mContext)){
+        /*if (ToolUtils.isApkInDebug(mContext)){
             remoteUrl = "https://0dlj.cn/config";
         }else{
             remoteUrl = "https://0dlj.cn/config";
+        }*/
+        if (ToolUtils.isApkInDebug(mContext)){
+            remoteUrl = "https://gitee.com/wei1120/dwei/raw/master/remote.ini";
+        }else{
+            remoteUrl = "https://gitee.com/wei1120/dwei/raw/master/remote.ini";
         }
         LOG.e("RemoteConfig",
                 ToolUtils.isApkInDebug(mContext) ? "当前处于【调试】模式":"当前处于【正式】模式",
