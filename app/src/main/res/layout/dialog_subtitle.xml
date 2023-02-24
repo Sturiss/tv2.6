@@ -219,7 +219,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="提示：设置仅支持外挂字幕，播放界面菜单长按可还原"
+                    android:text="提示：设置仅支持外挂字幕，播放界面菜单可长按还原"
                     android:textColor="@color/color_6C3D3D3D"
                     android:textSize="@dimen/ts_20" />
 
