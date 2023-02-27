@@ -30,7 +30,7 @@
             <View
                 android:id="@+id/previewPlayerPlace"
                 android:layout_width="@dimen/vs_470"
-                android:layout_height="@dimen/vs_300"
+                android:layout_height="@dimen/vs_280"
                 android:visibility="gone" />
 
             <LinearLayout
