@@ -223,7 +223,8 @@ public class DetailActivity extends BaseActivity {
                     vodInfo.playIndex=(vodInfo.seriesMap.get(vodInfo.playFlag).size()-1)-vodInfo.playIndex;
 //                    insertVod(sourceKey, vodInfo);
                     firstReverse = true;
-                    setSeriesGroupOptions();
+//                    setSeriesGroupOptions();//干掉集数分组逻辑
+                    mSeriesGroupView.setVisibility(View.GONE);
                     seriesAdapter.notifyDataSetChanged();
                 }
             }
@@ -534,7 +535,8 @@ public class DetailActivity extends BaseActivity {
 
         seriesAdapter.setNewData(vodInfo.seriesMap.get(vodInfo.playFlag));
         
-        setSeriesGroupOptions();
+//      setSeriesGroupOptions();//干掉集数分组逻辑
+        mSeriesGroupView.setVisibility(View.GONE);
 
         mGridView.postDelayed(new Runnable() {
             @Override
