@@ -747,6 +747,7 @@ public class PlayFragment extends BaseLazyFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        EventBus.getDefault().unregister(this);
         if (mVideoView != null) {
             mVideoView.release();
             mVideoView = null;
