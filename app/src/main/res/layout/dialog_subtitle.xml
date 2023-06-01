@@ -219,9 +219,9 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="设置仅外挂字幕有效"
+                    android:text="提示：设置仅支持外挂字幕，播放界面菜单可长按还原"
                     android:textColor="@color/color_6C3D3D3D"
-                    android:textSize="@dimen/ts_22" />
+                    android:textSize="@dimen/ts_20" />
 
             </LinearLayout>
             

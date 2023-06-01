@@ -153,10 +153,7 @@ public class VodController extends BaseController {
             mHandler.postDelayed(this, 1000);
         }
     };
-
-
-
-
+    
 
     @Override
     protected void initView() {
@@ -372,7 +369,7 @@ public class VodController extends BaseController {
                     updatePlayerCfgView();
                     listener.updatePlayerCfg();
                     listener.replay(false);
-//                    hideBottom();
+                    hideBottom();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -411,8 +408,8 @@ public class VodController extends BaseController {
                                     updatePlayerCfgView();
                                     listener.updatePlayerCfg();
                                     listener.replay(false);
-//                                    mPlayerBtn.requestFocus();
-//                                  hideBottom();
+//                                  mPlayerBtn.requestFocus();
+                                    hideBottom();
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -466,7 +463,7 @@ public class VodController extends BaseController {
                     updatePlayerCfgView();
                     listener.updatePlayerCfg();
                     listener.replay(false);
-//                    hideBottom();
+                    hideBottom();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
